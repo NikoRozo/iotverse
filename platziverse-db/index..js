@@ -9,12 +9,16 @@ module.exports = async function (config) {
   const AgentModel = setupAgentModel(config)
   const MetricModel = setupMetricModel(config)
 
+  // Relaciones entre tablas
   AgentModel.hasMany(MetricModel)
   MetricModel.belongsTo(AgentModel)
 
   // Validar si existe coneción a la DB, si hay algun error lo debe controlar quien llama la función
   await sequelize.authenticate()
 
+  if (config.setup) {
+    await sequelize.sync({ force: true })
+  }
   const Agent = {}
   const Metric = {}
 
