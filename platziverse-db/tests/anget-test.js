@@ -16,3 +16,7 @@ test.beforeEach(async () => {
 test('Agent', t => {
   t.truthy(db.Agent, 'Agent service should exist')
 })
+
+test('Metric', t => {
+  t.truthy(db.Metric, 'Metric service should exist')
+})
