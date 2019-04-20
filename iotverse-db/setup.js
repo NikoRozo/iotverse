@@ -1,7 +1,7 @@
 'use strict'
 
 const argv = require('yargs').boolean('y').argv
-const debug = require('debug')('platziverse:db:setup')
+const debug = require('debug')('iotverse:db:setup')
 const inquirer = require('inquirer')
 const chalk = require('chalk')
 const db = require('./index.')
