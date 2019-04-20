@@ -11,7 +11,7 @@ module.exports = function setupMetricModel (config) {
       type: Sequelize.STRING,
       allowNull: false
     },
-    valor: {
+    value: {
       type: Sequelize.TEXT,
       allowNull: false
     }
