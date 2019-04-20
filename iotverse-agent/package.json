@@ -19,6 +19,10 @@
   },
   "homepage": "https://github.com/NikoRozo/iotverse#readme",
   "dependencies": {
-    "standard": "^12.0.1"
+    "debug": "^4.1.1",
+    "defaults": "^1.0.3",
+    "mqtt": "^2.18.8",
+    "standard": "^12.0.1",
+    "uuid": "^3.3.2"
   }
 }
