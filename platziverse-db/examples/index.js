@@ -15,45 +15,45 @@ async function run () {
   const { Agent, Metric } = await db(config).catch(handleFatalError)
 
   const agent = await Agent.createOrUpdate({
-      uuid: 'YYY',
-      name: 'test-test',
-      username: 'test',
-      hostname: 'test',
-      pid: 1,
-      connected: true
-    }).catch(handleFatalError)
-    
-    console.log('--agent--')
-    console.log(agent)
-    
-    const agents = await Agent.findAll().catch(handleFatalError)
-    
-    console.log('--agents--')
-    console.log(agents)
+    uuid: 'YYY',
+    name: 'test-test',
+    username: 'test',
+    hostname: 'test',
+    pid: 1,
+    connected: true
+  }).catch(handleFatalError)
 
-    const metric = await Metric.create(agent.uuid, {
-        type: 'memory',
-        value: '300'
-    }).catch(handleFatalError)
+  console.log('--agent--')
+  console.log(agent)
 
-    const metric2 = await Metric.create(agent.uuid, {
-        type: 'cpu',
-        value: '100'
-    }).catch(handleFatalError)
-    
-    console.log('--create metrics--')
-    console.log(metric)
-    console.log(metric2)
+  const agents = await Agent.findAll().catch(handleFatalError)
 
-    const metrics = await Metric.findByAgentUuid(agent.uuid).catch(handleFatalError)
-    
-    console.log('--metrics--')
-    console.log(metrics)
-    
-    const metricsType = await Metric.findByTypeAgentUuid('memory', agent.uuid).catch(handleFatalError)
-    
-    console.log('--metrics type--')
-    console.log(metricsType)
+  console.log('--agents--')
+  console.log(agents)
+
+  const metric = await Metric.create(agent.uuid, {
+    type: 'memory',
+    value: '300'
+  }).catch(handleFatalError)
+
+  const metric2 = await Metric.create(agent.uuid, {
+    type: 'cpu',
+    value: '100'
+  }).catch(handleFatalError)
+
+  console.log('--create metrics--')
+  console.log(metric)
+  console.log(metric2)
+
+  const metrics = await Metric.findByAgentUuid(agent.uuid).catch(handleFatalError)
+
+  console.log('--metrics--')
+  console.log(metrics)
+
+  const metricsType = await Metric.findByTypeAgentUuid('memory', agent.uuid).catch(handleFatalError)
+
+  console.log('--metrics type--')
+  console.log(metricsType)
 }
 
 function handleFatalError (err) {

@@ -1,5 +1,6 @@
 'use strict'
 
+const argv = require('yargs').boolean('y').argv
 const debug = require('debug')('platziverse:db:setup')
 const inquirer = require('inquirer')
 const chalk = require('chalk')
@@ -8,14 +9,16 @@ const db = require('./index.')
 const prompt = inquirer.createPromptModule()
 
 async function setup () {
-  const answer = await prompt({
-    type: 'confirm',
-    name: 'setup',
-    massage: 'This will destroy your DataBase, Are you Sure?'
-  })
-
-  if (!answer.setup) {
-    return console.log('Nothing happened :)')
+  const ops = argv.y
+  if (!ops) {
+    const answer = await prompt({
+      type: 'confirm',
+      name: 'setup',
+      massage: 'This will destroy your DataBase, Are you Sure?'
+    })
+    if (!answer.setup || ops) {
+      return console.log('Nothing happened :)')
+    }
   }
 
   const config = {
