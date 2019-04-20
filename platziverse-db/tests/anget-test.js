@@ -90,7 +90,7 @@ test('Agent', t => {
   t.truthy(db.Agent, 'Agent service should exist')
 })
 
-test.serial('Setup', t => {
+test.serial('Agent#Setup', t => {
   t.true(AgentStub.hasMany.called, 'AgentModel.hasMany was executed')
   t.true(AgentStub.hasMany.calledWith(MetricStub), 'Argument should be the MetricModel')
   t.true(MetricStub.belongsTo.called, 'MetricModel.belongsTo was executed')

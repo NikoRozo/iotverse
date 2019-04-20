@@ -26,9 +26,22 @@ function extend (obj, values) {
   return Object.assign(clone, values)
 }
 
+function byAgentUuidGroupType (metris) {
+  let types = []
+  for (let i = 0; i < metris.length; i++) {
+    const element = metris[i]
+    if (types.filter(a => a.type === element.type).length === 0) {
+      types.push({
+        type: element.type
+      })
+    }
+  }
+  return types
+}
+
 module.exports = {
   single: metric,
   all: metrics,
-  byType: type => metrics.filter(a => a.type === type).shift(),
-  byId: id => metrics.filter(a => a.id === id).shift()
+  byAgentUuid: uuid => byAgentUuidGroupType(metrics.filter(a => a.agent.uuid === uuid)),
+  byTypeAgentUuid: (uuid, type) => metrics.filter(a => a.agent.uuid === uuid && a.type === type)
 }
