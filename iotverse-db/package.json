@@ -1,23 +1,23 @@
 {
-  "name": "platziverse-db",
+  "name": "iotverse-db",
   "version": "1.0.0",
   "description": "A Simple IoT Platform - DB Module",
   "main": "index.js",
   "scripts": {
-    "setup": "SET DEBUG=platziverse:* && node setup.js",
-    "test": "SET DEBUG=platziverse:* && nyc --reporter=lcov ava tests/ --verbose",
+    "setup": "SET DEBUG=iotverse:* && node setup.js",
+    "test": "SET DEBUG=iotverse:* && nyc --reporter=lcov ava tests/ --verbose",
     "lint": "standard"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NikoRozo/platziverse.git"
+    "url": "git+https://github.com/NikoRozo/iotverse.git"
   },
   "author": "NikoRozo",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/NikoRozo/platziverse/issues"
+    "url": "https://github.com/NikoRozo/iotverse/issues"
   },
-  "homepage": "https://github.com/NikoRozo/platziverse#readme",
+  "homepage": "https://github.com/NikoRozo/iotverse#readme",
   "devDependencies": {
     "ava": "^1.4.1",
     "nyc": "^14.0.0",
