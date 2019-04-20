@@ -1,9 +1,9 @@
-# platziverse-agent
+# iotverse-agent
 
 ## Usage
 
 ``` js
-const PlatziverseAgent = require('platziverse-agent')
+const IoTVerseAgent = require('iotverse-agent')
 
 const agent = new PlatziverseAgent({
   name: 'myapp',
