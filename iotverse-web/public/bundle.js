@@ -215,13 +215,15 @@ var _require = require('vue-chartjs'),
 var reactiveProp = mixins.reactiveProp;
 
 
-module.exports = Line.extend({
-  mixins: [reactiveProp],
+module.exports = {
+  extends: Line,
   props: ['options'],
+  mixins: [reactiveProp],
   mounted: function mounted() {
+    // Overwriting base render method with actual data.
     this.renderChart(this.chartData, this.options);
   }
-});
+};
 
 },{"vue-chartjs":433}],5:[function(require,module,exports){
 var __vueify_style_dispose__ = require("vueify/lib/insert-css").insert(".metric {\n  border: 1px solid white;\n  margin: 0 auto;\n}\n.metric-type {\n  font-size: 28px;\n  font-weight: normal;\n  font-family: 'Roboto', sans-serif;\n}\ncanvas {\n  margin: 0 auto;\n}")

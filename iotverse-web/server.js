@@ -15,7 +15,7 @@ const { pipe } = require('./utils')
 const port = process.env.PORT || 8080
 const app = asyncify(express())
 const server = http.createServer(app)
-const io = socketio(server)
+const io = socketio.listen(server)
 const agent = new IoTVerseAgent()
 
 app.use(express.static(path.join(__dirname, 'public')))
