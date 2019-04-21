@@ -1,0 +1,31 @@
+{
+  "name": "iotverse-cli",
+  "version": "1.0.0",
+  "description": "A Simple IoT Platform - CLI",
+  "private": true,
+  "bin": "iotverse.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NikoRozo/iotverse.git"
+  },
+  "author": "NikoRozo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NikoRozo/iotverse/issues"
+  },
+  "homepage": "https://github.com/NikoRozo/iotverse#readme",
+  "devDependencies": {
+    "standard": "^12.0.1"
+  },
+  "dependencies": {
+    "blessed": "^0.1.81",
+    "blessed-contrib": "^4.8.15",
+    "iotverse-agent": "file:../iotverse-agent",
+    "minimist": "^1.2.0",
+    "moment": "^2.24.0"
+  }
+}
