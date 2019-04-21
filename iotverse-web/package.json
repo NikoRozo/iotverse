@@ -2,7 +2,7 @@
   "name": "iotverse-web",
   "version": "1.0.0",
   "description": "A Simple IoT Platform - Web Dashboard",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "SET NODE_ENV=production && node server.js",
     "prestart": "npm run build",

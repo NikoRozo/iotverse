@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "A Simple IoT Platform - MQTT Server",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "SET NODE_ENV=production && node server.js",
     "start-dev": "SET DEBUG=iotverse:* && nodemon server.js",
