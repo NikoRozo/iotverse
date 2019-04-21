@@ -39,7 +39,13 @@
         <script type="text/javascript">
             var socket = io()
             socket.on('agent/message', function (payload) {
-              console.log(payload)
+              console.log('Message:', payload)
+            })
+            socket.on('agent/connected', function (payload) {
+              console.log('Connected:', payload)
+            })
+            socket.on('agent/disconnected', function (payload) {
+              console.log('Disconnected:', payload)
             })
             setTimeout(function () {
               socket.emit('agent/message', 'hello server!')

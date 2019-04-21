@@ -6,9 +6,7 @@ function parsePayload (payload) {
   }
 
   try {
-    console.log('antes: ' + payload)
     payload = payload.split("'").join('"')
-    console.log('depues: ' + payload)
     payload = JSON.parse(payload)
   } catch (e) {
     payload = null
