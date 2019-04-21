@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "SET NODE_ENV=production && node server.js",
+    "prestart": "npm run build",
     "start-dev": "SET DEBUG=iotverse:* && nodemon server.js",
+    "prestart-dev": "npm run build",
+    "build": "browserify -t babelify -t vueify client/app.js -o public/bundle.js",
     "lint": "standard"
   },
   "repository": {
@@ -18,18 +21,41 @@
     "url": "https://github.com/NikoRozo/iotverse/issues"
   },
   "homepage": "https://github.com/NikoRozo/iotverse#readme",
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015"
+          ]
+        }
+      ]
+    ]
+  },
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babelify": "^8.0.0",
+    "browserify": "^16.2.3",
     "nodemon": "^1.18.11",
-    "standard": "^12.0.1"
+    "standard": "^12.0.1",
+    "vueify": "^9.4.1"
   },
   "dependencies": {
     "chalk": "^2.4.2",
+    "chart.js": "^2.8.0",
     "debug": "^4.1.1",
     "express": "^4.16.4",
     "express-asyncify": "^1.0.0",
     "iotverse-agent": "file:../iotverse-agent",
+    "moment": "^2.24.0",
+    "random-material-color": "^1.0.3",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.7",
-    "socket.io": "^2.2.0"
+    "socket.io": "^2.2.0",
+    "vue": "^2.6.10",
+    "vue-chartjs": "^3.4.2"
   }
 }
