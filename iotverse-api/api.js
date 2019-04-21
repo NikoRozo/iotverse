@@ -3,7 +3,7 @@
 const debug = require('debug')('iotverse:api:routes')
 const express = require('express')
 const asyncify = require('express-asyncify')
-// const auth = require('express-jwt')
+const auth = require('express-jwt')
 // const guard = require('express-jwt-permissions')()
 const db = require('iotverse-db/index.')
 
@@ -27,13 +27,23 @@ api.use('*', async (res, rep, next) => {
   next()
 })
 
-api.get('/agents', async (req, rep, next) => {
+api.get('/agents', auth(config.auth), async (req, rep, next) => {
   debug('A request has come to /agents')
+
+  const { user } = req
+
+  if (!user || user.username) {
+    return next(new Error('Not Authorized'))
+  }
 
   let agents = []
 
   try {
-    agents = await Agent.findConnected()
+    if (user.admin) {
+      agents = await Agent.findConnected()
+    } else {
+      agents = await Agent.findByUsername(user.username)
+    }
   } catch (e) {
     return next(e)
   }
