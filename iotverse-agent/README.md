@@ -5,7 +5,7 @@
 ``` js
 const IoTVerseAgent = require('iotverse-agent')
 
-const agent = new PlatziverseAgent({
+const agent = new IoTVerseAgent({
   name: 'myapp',
   username: 'admin',
   interval: 2000
