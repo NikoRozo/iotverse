@@ -32,7 +32,7 @@ api.get('/agents', auth(config.auth), async (req, rep, next) => {
 
   const { user } = req
 
-  if (!user || user.username) {
+  if (!user || !user.username) {
     return next(new Error('Not Authorized'))
   }
 
