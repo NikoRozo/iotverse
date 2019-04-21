@@ -1,0 +1,30 @@
+{
+  "name": "iotverse-web",
+  "version": "1.0.0",
+  "description": "A Simple IoT Platform - Web Dashboard",
+  "main": "index.js",
+  "scripts": {
+    "start": "SET NODE_ENV=production && node server.js",
+    "start-dev": "SET DEBUG=iotverse:* && nodemon server.js",
+    "lint": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NikoRozo/iotverse.git"
+  },
+  "author": "NikoRozo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NikoRozo/iotverse/issues"
+  },
+  "homepage": "https://github.com/NikoRozo/iotverse#readme",
+  "devDependencies": {
+    "nodemon": "^1.18.11",
+    "standard": "^12.0.1"
+  },
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "debug": "^4.1.1",
+    "express": "^4.16.4"
+  }
+}
