@@ -4,26 +4,28 @@ const debug = require('debug')('iotverse:web')
 const path = require('path')
 const http = require('http')
 const express = require('express')
+const asyncify = require('express-asyncify')
 const socketio = require('socket.io')
 const chalk = require('chalk')
 const IoTVerseAgent = require('iotverse-agent')
 
+const poxy = require('./proxy')
 const { pipe } = require('./utils')
 
 const port = process.env.PORT || 8080
-const app = express()
+const app = asyncify(express())
 const server = http.createServer(app)
 const io = socketio(server)
 const agent = new IoTVerseAgent()
 
 app.use(express.static(path.join(__dirname, 'public')))
+app.use('/', poxy)
 
 // Socket.io / WebSocket
 io.on('connect', socket => {
   debug(`Connected ${socket.id}`)
 
   pipe(agent, socket)
-
 })
 
 // Express Error Handler
