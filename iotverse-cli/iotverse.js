@@ -7,9 +7,9 @@
 const blessed = require('blessed')
 const contrib = require('blessed-contrib')
 const moment = require('moment')
-const PlatziverseAgent = require('platziverse-agent')
+const IoTVerseAgent = require('iotverse-agent')
 
-const agent = new PlatziverseAgent()
+const agent = new IoTVerseAgent()
 const screen = blessed.screen()
 
 const agents = new Map()
